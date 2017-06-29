@@ -1,11 +1,8 @@
 # douban
 
 > A Vue.js project
-## 效果预览
-> https://jasmine-na.github.io/douban/dist/
 
 ## Build Setup
-
 
 ``` bash
 # install dependencies
