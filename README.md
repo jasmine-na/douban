@@ -13,9 +13,9 @@
 
 ``` bash
 # 克隆项目
-git clone https://github.com/jasmine-na/vue2-element-admin.git
+git clone https://github.com/jasmine-na/douban.git
 
-# 下载依赖install dependencies
+# 下载依赖 install dependencies
 npm install
 
 # 本地开发 开启服务   serve with hot reload at localhost:8080
