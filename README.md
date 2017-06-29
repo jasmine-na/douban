@@ -6,7 +6,7 @@
 >1. 样式使用iView为主，自动化工具使用webpack，js框架使用vue2；
 
 ### **API接口**
->1 https://developers.douban.com/wiki/?title=movie_v2
+>1. https://developers.douban.com/wiki/?title=movie_v2
 
 ### **功能/页面**
 >1. 
