@@ -3,7 +3,9 @@
 基于vue2、vue-cli、iView、webpack、es6等实现
 >预览地址：https://jasmine-na.github.io/douban/dist/
 ### **项目介绍**
->1. 样式使用iView为主，自动化工具使用webpack，js框架使用vue2；
+>1. 样式使用iView为主，https://www.iviewui.com/
+>2. 自动化工具使用webpack
+>3. js框架使用vue2
 
 ### **API接口**
 >1. https://developers.douban.com/wiki/?title=movie_v2
