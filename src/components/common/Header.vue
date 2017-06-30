@@ -1,41 +1,34 @@
 <template>
-  <div>
-    <div class="vux-demo">
-      <img class="logo" src="../assets/vux_logo.png">
-      <h1> </h1>
-    </div>
-    <group title="cell demo">
-      <cell title="Vux" value="Cool" is-link></cell>
-    </group>
-  </div>
+<div>
+    <x-header :left-options="{showBack: false}">豆瓣电影</x-header>
+    <tab :line-width=2>
+               <tab-item selected class="vux-center"><router-link to="/movie">正在热映</router-link></tab-item>
+               <tab-item class="vux-center">图书</tab-item>
+               <tab-item class="vux-center">广播</tab-item>
+               <tab-item class="vux-center">小组</tab-item>
+      </tab>
+    
+</div>
 </template>
 
 <script>
-import { Group, Cell } from 'vux'
+import { XHeader,Tab, TabItem} from 'vux'
 
 export default {
   components: {
-    Group,
-    Cell
+     XHeader,Tab, TabItem
   },
   data () {
     return {
-      // note: changing this line won't causes changes
-      // with hot-reload because the reloaded component
-      // preserves its current state and we are modifying
-      // its initial state.
-      msg: 'Hello World!'
+       
     }
   }
 }
 </script>
-
 <style>
-.vux-demo {
-  text-align: center;
-}
-.logo {
-  width: 100px;
-  height: 100px
-}
+     .text-green{color: #00b600;}
+     .text-blue{color:rgb(35, 132, 232);}
+     .text-brown{color:rgb(159, 120, 96)}
+     .text-orange{color:rgb(228, 168, 19)}
+     .text-sky-blue{color:rgb(42, 184, 204)}
 </style>
