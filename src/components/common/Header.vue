@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="header-fixed">
     <x-header :left-options="{showBack: false}">豆瓣电影</x-header>
     <tab :line-width=2>
                <tab-item selected class="vux-center"><router-link to="/movie">正在热映</router-link></tab-item>
@@ -26,6 +26,12 @@ export default {
 }
 </script>
 <style>
+     .header-fixed{
+        width: 100%;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        z-index: 100;}
      .text-green{color: #00b600;}
      .text-blue{color:rgb(35, 132, 232);}
      .text-brown{color:rgb(159, 120, 96)}

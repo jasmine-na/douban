@@ -16,4 +16,5 @@ export default {
 body {
   background-color: #fbf9fe;
 }
+#app{max-width: 500px;margin: 0 auto}
 </style>
