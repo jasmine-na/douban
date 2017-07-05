@@ -42,8 +42,4 @@ export default {
      }
 }
 </script>
-<style type="text/css">
-  .movieType-title{margin-top: 1rem}
-  .weui-search-bar__box{border:1px solid #eee;border-radius: 6px;}
-</style>
 
