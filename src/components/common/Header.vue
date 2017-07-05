@@ -26,15 +26,5 @@ export default {
 }
 </script>
 <style>
-     .header-fixed{
-        width: 100%;
-        position: absolute;
-        left: 0px;
-        top: 0px;
-        z-index: 100;}
-     .text-green{color: #00b600;}
-     .text-blue{color:rgb(35, 132, 232);}
-     .text-brown{color:rgb(159, 120, 96)}
-     .text-orange{color:rgb(228, 168, 19)}
-     .text-sky-blue{color:rgb(42, 184, 204)}
+    
 </style>

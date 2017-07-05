@@ -1,22 +1,29 @@
 <template>
 	          <div class="tab-swiper vux-center content">
 	                  <ul>
-	                  	<li v-for="item in movies">
-	                  	    <div class="flex-box">
-		                    	<img :src="item.images.medium">
-		                    	<div class="flex-box-content">
-		                    		  <p>{{item.original_title}}</p>
-		                    		  <p class="text-muted">{{item.year}}</p>
-		                    		  <p>{{item.rating.average}}分</p>
-		                    		  <p>
-		                    		  	  <span v-for="genre in item.genres">
-		                    		  	  	   <badge :text="genre" class="m-r-1"></badge>
-		                    		  	  </span>
-		                    		  </p>
+	                  {{movies}}
+	                  	<li v-for="movie in movies">
+                                <div class="movie-title">{{movie.title}}</div>
+                                <div class="line"></div>
+		                  	    <div class="flex-box" v-for="item in movie.subjects">
+			                    	<img :src="item.images.medium">
+			                    	<div class="flex-box-content">
+			                    		  <p>{{item.original_title}}</p>
+			                    		  <p class="text-muted small-size">{{item.year}}年/<span class="text-blue small-size">{{item.rating.average}}分</span>
+			                    		  <!-- star：{{item.rating.stars}} --></p>
+			                    		  <p class="small-size">主演：<span v-for="(cast,index) in item.casts"> 
+			                    		  	     <span v-if="index !=0">/</span>{{cast.name}}
+			                    		  </span>
+			                    		  </p>
+			                    		  <p>
+			                    		  	  <span v-for="genre in item.genres">
+			                    		  	  	   <badge :text="genre" class="m-r-1"></badge>
+			                    		  	  </span>
+			                    		  </p>
+			                    	</div>
+			                    	<div class="line"></div>
 		                    	</div>
-	                    	</div>
-	                    	<div class="line"></div>
-	                  	</li>
+	                  	   </li>
 	                  </ul>  
 	          </div>
 </template>
@@ -29,47 +36,41 @@ export default {
 	},
     data () {
 	    return {
-	        movies:[]
+	        movies:[],
+	        count:5//获取条数
 	    }
 	 },
 	mounted: function() {
-        this.getMovie();
+        this.getIn_theaters();
+        this.getComing_soon();
+        this.getUs_box();
     },
      methods: {
             //获取正在热映列表
-	        async getMovie() {
-	             let data = await this.$http.get(`/v2/movie/in_theaters`);
+	        async getIn_theaters() {
+	             let data = await this.$http.get(`/v2/movie/in_theaters?start=0 & count=${this.count}`);
 	             if (data.status == 200) {
-	             	   this.movies=data.data.subjects;
-	             	   console.log(this.movies);
+	             	   this.movies[0]=data.data;
+	             }
+	        },
+	        //获取即将上映列表
+	        async getComing_soon() {
+	             let data = await this.$http.get(`/v2/movie/coming_soon?start=0 & count=${this.count}`);
+	             if (data.status == 200) {
+	             	   this.movies[1]=data.data;
+	             }
+	        },
+	        //获取新片榜列表
+	        async getUs_box() {
+	             let data = await this.$http.get(`/v2/movie/us_box?start=0 & count=${this.count}`);
+	             if (data.status == 200) {
+	             	   this.movies[2]=data.data;
 	             }
 	        }
+
      }
 }
 </script>
-<style>
-        ul{padding: 0;}
-        ul,li{list-style: none}
-        .flex-box{display: flex;flex-direction:row;flex-wrap: nowrap;justify-content: flex-start;margin:1rem 0;}
-        .flex-box-content{
-       	 display: flex;flex-direction: column;padding-left: 0.5rem;
-        }
-        .bg-warning {
-		    background-color: #ffc107
-		}
-		.bg-error {
-		    background-color: #f44336
-		}
-		.bg-primary {
-		    background-color: #26a2ff
-		}
-		.bg-success {
-		    background-color: #4caf50
-		}
-		.text-muted{color: #666;}
-		.m-r-1{margin-right:0.5rem;}
-		.line{border-top:1px solid #eee;height: 1px;margin:1rem 0;}
-		.content{padding-top: 90px;overflow:auto;}
-		
-
+<style type="text/css">
 </style>
+

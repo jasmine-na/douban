@@ -12,9 +12,6 @@ export default {
 
 <style lang="less">
 @import '~vux/src/styles/reset.less';
-
-body {
-  background-color: #fbf9fe;
-}
+@import "../static/css/main.css";
 #app{max-width: 500px;margin: 0 auto}
 </style>
