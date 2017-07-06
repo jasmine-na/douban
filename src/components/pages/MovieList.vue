@@ -1,29 +1,33 @@
 <template>
-               <div v-if="movies">
-	                    <div class="movieType-title">
-	                  			 <p><b>{{movies.data.title}}</b></p>  
-	                  			 <router-link :to="{ name: 'list', params: { type: movies.name}}">更多</router-link>
-	                    </div>
-                        <div class="line"></div>
-                  	    <div class="flex-box" v-for="move in movies.data.subjects">
-	                    	<img :src="move.images.medium" width="100px;">
-	                    	<div class="flex-box-content">
-	                    		  <p>{{move.original_title}}</p>
-	                    		  <p class="text-muted small-size">{{move.year}}年/<span class="text-blue small-size">{{move.rating.average}}分</span>
-	                    		 </p>
-	                    		  <p class="small-size">主演：<span v-for="(cast,index) in move.casts"> 
-	                    		  	     <span v-if="index !=0">/</span>{{cast.name}}
-	                    		  </span>
-	                    		  </p>
-	                    		  <p>
-	                    		  	  <span v-for="genre in move.genres">
-	                    		  	  	   <badge :text="genre" class="m-r-1"></badge>
-	                    		  	  </span>
-	                    		  </p>
+               <div>
+	               <div v-if="movies">
+		                    <div class="movieType-title">
+		                  			 <p><b>{{movies.data.title}}</b></p>  
+		                  			 <router-link :to="{ name: 'list', params: { type: movies.name}}">更多</router-link>
+		                    </div>
+	                        <div class="line"></div>
+	                  	    <div class="flex-box" v-for="move in movies.data.subjects">
+		                    	<img :src="move.images.medium" width="100px;">
+		                    	<div class="flex-box-content">
+		                    		  <p>{{move.original_title}}</p>
+		                    		  <p class="text-muted small-size">{{move.year}}年/<span class="text-blue small-size">{{move.rating.average}}分</span>
+		                    		 </p>
+		                    		  <p class="small-size">主演：<span v-for="(cast,index) in move.casts"> 
+		                    		  	     <span v-if="index !=0">/</span>{{cast.name}}
+		                    		  </span>
+		                    		  </p>
+		                    		  <p>
+		                    		  	  <span v-for="genre in move.genres">
+		                    		  	  	   <badge :text="genre" class="m-r-1"></badge>
+		                    		  	  </span>
+		                    		  </p>
+		                    	</div>
+		                    	<div class="line"></div>
 	                    	</div>
-	                    	<div class="line"></div>
-                    	</div>
+	                </div>
+	                
                 </div>
+
 </template>>
 <!-- <script type="text/ecmascript-6"> -->
 <script>
@@ -32,7 +36,7 @@ export default {
 	 props: ['movies'], //组件通信
 	 data () {
 	    return {
-	       
+	          
 	    }
 	 },
 	 components: {

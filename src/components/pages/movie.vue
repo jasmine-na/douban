@@ -1,6 +1,6 @@
 <template>
 	          <div class="tab-swiper vux-center content" >
-	          
+
 	                  <div class="weui-search-bar__box">
 	                           <i class="weui-icon-search" ></i> 
 	                           <input type="search" v-model="searchText"  autocomplete="off" class="weui-search-bar__input" v-on:change="searchMovie">
@@ -11,17 +11,20 @@
                          <div v-else v-for="movie in movies"> 
 	                            <movie-list :movies.sync="movie"></movie-list>
 	                     </div>
+	                     <div>
+					           <loading v-model="loading" :text="loadingText"></loading>
+					    </div>
 	          </div>
 
 </template>
 <!-- <script type="text/ecmascript-6"> -->
 <script>
-import {Search} from 'vux';
+import {Search,Loading} from 'vux';
 import MovieList from './MovieList.vue';
 
 export default {
 	components: {
-	     Search,MovieList
+	     Search,Loading,MovieList
 	},
     data () {
 	    return {
@@ -29,7 +32,9 @@ export default {
 	        searchTotal:0,
 	        count:5,//获取条数
 	        searchText:"",
-	        movies:[]
+	        movies:[],
+	        loadingText:"loading",
+	        loading: true //是否加载
 	    }
 	},
 	mounted: function() {
@@ -46,17 +51,22 @@ export default {
 								name: item,
 								data:data.data
 							})
-                            console.log(that.movies)
-	                    }         
+							if(index==actions.length-1){
+                                 that.loading=false;
+							}
+	                   }         
 	             )
+				
 
 	        },
 	        async searchMovie(){
+	        	 this.loading=true;
 	        	 let data = await this.$http.get(`/v2/movie/search?q=${this.searchText}`);
 	             if (data.status == 200) {
 	             	   this.searchMovies=data;
 	             	   this.searchTotal=this.searchMovies.data.total;
 	             }
+	             this.loading=false;
 	             
 	        }
 
