@@ -1,8 +1,8 @@
 <template>
                <div v-if="movies">
 	                    <div class="movieType-title">
-	                           
-	                  			 <p><b>{{movies.data.title}}</b></p>  <router-link :to="{ name: 'list', params: { type: movies.name}}">更多</router-link>
+	                  			 <p><b>{{movies.data.title}}</b></p>  
+	                  			 <router-link :to="{ name: 'list', params: { type: movies.name}}">更多</router-link>
 	                    </div>
                         <div class="line"></div>
                   	    <div class="flex-box" v-for="move in movies.data.subjects">

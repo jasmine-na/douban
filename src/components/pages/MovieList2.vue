@@ -3,11 +3,11 @@
                     <div  v-if="movies" v-for="item in movies">
 		                       <div v-if="currentPage==1">
 		                        <div class="movieType-title">
-			                  			 <p><b>{{item.data.title}}——列表</b></p>
+			                  			 <p><b>{{item.title}}——列表</b></p>
 			                     </div>
 			                   <div class="line"></div>
 			                   </div>
-		                  	    <div class="flex-box"  v-for="move in item.data.subjects">
+		                  	    <div class="flex-box"  v-for="move in item.subjects">
 			                    	<img :src="move.images.medium" width="100px;">
 			                    	<div class="flex-box-content">
 			                    		  <p>{{move.original_title}}</p>
@@ -58,8 +58,8 @@ export default {
      	   	      let start=(this.currentPage-1)*this.pageSize;
      	   	      let data = await this.$http.get(`/v2/movie/${this.$route.params.type}?start=${start}&count=${this.pageSize}`);
 	               if (data.status == 200) {
-		              	if(data.data.subjects.length>=0){
-		             	   this.movies=this.movies.concat(data);
+		              	if(data.data.subjects.length >= 0){
+		             	   this.movies=this.movies.concat(data.data);
 		              	}else{
 	                       this.more=false;
 		                }
