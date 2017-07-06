@@ -11,6 +11,8 @@ Vue.use(VueAxios, Axios)//http://www.jianshu.com/p/2045900d49df Axios用法
 
 FastClick.attach(document.body)
 
+
+Vue.prototype.HOST = 'https://api.douban.com'
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
