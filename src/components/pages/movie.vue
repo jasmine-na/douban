@@ -30,7 +30,7 @@ export default {
 	    return {
 	        searchMovies:[],
 	        searchTotal:0,
-	        count:5,//获取条数
+	        count:6,//获取条数
 	        searchText:"",
 	        movies:[],
 	        loadingText:"loading",
