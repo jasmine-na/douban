@@ -7,8 +7,9 @@
 		                    </div>
 	                        <div class="line"></div>
 	                        <flexbox :gutter="0" wrap="wrap">
-						      <flexbox-item :span="1/3" v-for="move in movies.data.subjects"><div class="flex-demo"><img :src="move.images.medium">
-						      <p class="text">{{move.original_title}}</p>
+						      <flexbox-item :span="1/3" v-for="movie in movies.data.subjects"><div class="flex-demo">
+						       <router-link :to="{ name: 'subject', params: { id: movie.id}}"><img :src="movie.images.medium"></router-link>
+						      <p class="text">{{movie.original_title}}</p>
 						      <p class="mask"></p>
 						      </div></flexbox-item>
 						    </flexbox>
@@ -36,7 +37,7 @@ export default {
      }
 }
 </script>
-<style type="text/css">
+<style scoped>
       .moviesList{display: flex;flex: row;flex-wrap: wrap;}
       .flex-column{flex-direction: column;display: flex;flex-wrap: wrap;}
       .flex-row{flex-direction: row;display: flex;flex-wrap: wrap;}

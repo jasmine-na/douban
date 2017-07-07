@@ -7,18 +7,18 @@
 			                     </div>
 			                   <div class="line"></div>
 			                   </div>
-		                  	    <div class="flex-box"  v-for="move in item.subjects">
-			                    	<img :src="move.images.medium" width="100px;">
+		                  	    <div class="flex-box"  v-for="movie in item.subjects">
+			                    	<img :src="movie.images.medium" width="100px;">
 			                    	<div class="flex-box-content">
-			                    		  <p>{{move.original_title}}</p>
-			                    		  <p class="text-muted small-size">{{move.year}}年/<span class="text-blue small-size">{{move.rating.average}}分</span>
+			                    		  <p>{{movie.original_title}}</p>
+			                    		  <p class="text-muted small-size">{{movie.year}}年/<span class="text-blue small-size">{{movie.rating.average}}分</span>
 			                    		 </p>
-			                    		  <p class="small-size">主演：<span v-for="(cast,index) in move.casts"> 
+			                    		  <p class="small-size">主演：<span v-for="(cast,index) in movie.casts"> 
 			                    		  	     <span v-if="index !=0">/</span>{{cast.name}}
 			                    		  </span>
 			                    		  </p>
 			                    		  <p>
-			                    		  	  <span v-for="genre in move.genres">
+			                    		  	  <span v-for="genre in movie.genres">
 			                    		  	  	   <badge :text="genre" class="m-r-1"></badge>
 			                    		  	  </span>
 			                    		  </p>
