@@ -20,7 +20,7 @@
 <!-- <script type="text/ecmascript-6"> -->
 <script>
 import {Search,Loading} from 'vux';
-import MovieList from './MovieList.vue';
+import MovieList from './MovieIndexList.vue';
 
 export default {
 	components: {

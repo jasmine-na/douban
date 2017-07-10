@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/common/Home'
 import Movie from '@/components/pages/movie.vue'
-import MovieList from '@/components/pages/MovieList2.vue'
+import MovieList from '@/components/pages/MovieList.vue'
 import Subject from '@/components/pages/subject.vue'
 Vue.use(Router)
 

@@ -1,51 +1,79 @@
 <template>
-               <div class="moviesList">
-	               <div v-if="movies">
-		                    <div class="movieType-title">
-		                  			 <p><b>{{movies.data.title}}</b></p>  
-		                  			 <router-link :to="{ name: 'list', params: { type: movies.name}}">更多</router-link>
-		                    </div>
-	                        <div class="line"></div>
-	                        <flexbox :gutter="0" wrap="wrap">
-						      <flexbox-item :span="1/3" v-for="movie in movies.data.subjects"><div class="flex-demo">
-						       <router-link :to="{ name: 'subject', params: { id: movie.id}}"><img :src="movie.images.medium"></router-link>
-						      <p class="text">{{movie.original_title}}</p>
-						      <p class="mask"></p>
-						      </div></flexbox-item>
-						    </flexbox>
-	                </div>
-	                
+               <div  class="tab-swiper vux-center content">
+                    <div  v-if="movies" v-for="item in movies">
+		                       <div v-if="currentPage==1">
+		                        <div class="movieType-title">
+			                  			 <p><b>{{item.title}}——列表</b></p>
+			                     </div>
+			                   <div class="line"></div>
+			                   </div>
+		                  	    <div class="flex-box"  v-for="movie in item.subjects">
+			                    	<img :src="movie.images.medium" width="100px;">
+			                    	<div class="flex-box-content">
+			                    		  <p>{{movie.original_title}}</p>
+			                    		  <p class="text-muted small-size">{{movie.year}}年/<span class="text-blue small-size">{{movie.rating.average}}分</span>
+			                    		 </p>
+			                    		  <p class="small-size">主演：<span v-for="(cast,index) in movie.casts"> 
+			                    		  	     <span v-if="index !=0">/</span>{{cast.name}}
+			                    		  </span>
+			                    		  </p>
+			                    		  <p>
+			                    		  	  <span v-for="genre in movie.genres">
+			                    		  	  	   <badge :text="genre" class="m-r-1"></badge>
+			                    		  	  </span>
+			                    		  </p>
+			                    	</div>
+			                    	<div class="line"></div>
+		                    	</div>
+                    	</div>
+					    <div>
+					      <loading v-model="loading" :text="loadingText"></loading>
+					    </div>
+					    <div v-if="!more">没有更多了</div>
                 </div>
-
 </template>>
 <!-- <script type="text/ecmascript-6"> -->
 <script>
-import {Flexbox, FlexboxItem,Swiper,Badge} from 'vux';
+import {Swiper,Badge,Loading} from 'vux';
 export default {
-	 props: ['movies'], //组件通信
 	 data () {
 	    return {
-	          
+	          movies:[],
+	          loadingText:"loading",
+	          loading: true, //是否加载
+              pageSize: 5, //每页条数
+              currentPage: 1,//当前页
+              more:true//更多
 	    }
 	 },
 	 components: {
-	      Flexbox, FlexboxItem,Swiper,Badge
+	      Swiper,Badge,Loading
 	 },
 	 mounted: function() {
+	 	 window.addEventListener('scroll', this.handleScroll);
+	 	 this.getMovies();
      },
      methods: {
+     	   async getMovies(){
+     	   	      let start=(this.currentPage-1)*this.pageSize;
+     	   	      let data = await this.$http.get(`/v2/movie/${this.$route.params.type}?start=${start}&count=${this.pageSize}`);
+	               if (data.status == 200) {
+		              	if(data.data.subjects.length >= 0){
+		             	   this.movies=this.movies.concat(data.data);
+		              	}else{
+	                       this.more=false;
+		                }
+		                this.loading=false;
+	                }
+	        },
+	        handleScroll (e) {
+			     if(document.body.scrollTop >= document.body.scrollHeight - window.screen.height && !this.loading) {
+						this.loading=true;
+						this.currentPage++;
+						this.getMovies();
+				     }
+		    }
      }
 }
 </script>
-<style scoped>
-      .moviesList{display: flex;flex: row;flex-wrap: wrap;}
-      .flex-column{flex-direction: column;display: flex;flex-wrap: wrap;}
-      .flex-row{flex-direction: row;display: flex;flex-wrap: wrap;}
-      .flex-demo{height: 160px;position: relative;display: flex;align-items:flex-end;}
-      .vux-flexbox{}
-      .flex-demo p{width: 100px;position: absolute;bottom: 0;height: 20px}
-      .flex-demo p.mask{background: #000;opacity: 0.6;z-index: 1;}
-      .flex-demo p.text{white-space: nowrap;overflow: hidden;font-size: 0.75rem;color: #fff;text-overflow: ellipsis;padding:0  0.25rem;  box-sizing: border-box;z-index: 2}
-      
-</style>
 
