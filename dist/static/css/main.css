@@ -3,7 +3,7 @@ ul{padding: 0;}
 ul,li{list-style: none}
 .flex-box{display: flex;flex-direction:row;flex-wrap: nowrap;justify-content: flex-start;margin:1rem 0;}
 .flex-box-content{
- display: flex;flex-direction: column;padding-left: 0.5rem;
+display: flex;flex-direction: column;padding-left: 0.5rem;
 }
 .bg-warning {
 background-color: #ffc107
@@ -27,13 +27,21 @@ background-color: #4caf50
 .text-brown{color:rgb(159, 120, 96)}
 .text-orange{color:#f0ad4e}
 .text-sky-blue{color:rgb(42, 184, 204)}
-.vux-demo {
-text-align: center;
-}
-.logo {
-width: 100px;
-height: 100px
-}
+.vux-demo {text-align: center;}
+.logo {width: 100px;height: 100px}
 .small-size{font-size: 13px;}
-.movieType-title{margin-top: 1rem}
-  .weui-search-bar__box{border:1px solid #eee;border-radius: 6px;}
+.movieType-title{margin-top: 1rem;display: flex;justify-content: space-between;}
+.movieType-title a{}
+.weui-search-bar__box{border:1px solid #eee;border-radius: 6px;}
+.moviesList{display: flex;flex: row;flex-wrap: wrap;}
+.flex-column{flex-direction: column;display: flex;flex-wrap: wrap;}
+.flex-row{flex-direction: row;display: flex;flex-wrap: wrap;}
+.flex-demo{height: 160px;position: relative;display: flex;align-items:flex-end;}
+.flex-demo p{width: 100px;position: absolute;bottom: 0;height: 20px}
+.flex-demo p.mask{background: #000;opacity: 0.6;z-index: 1;}
+.flex-demo p.text{white-space: nowrap;overflow: hidden;font-size: 0.75rem;color: #fff;text-overflow: ellipsis;padding:0  0.25rem;  box-sizing: border-box;z-index: 2}
+.vux-flexbox{flex-wrap: wrap;}
+.flex-box{flex-direction: row;height: 100%;
+}
+.title{padding: .5rem 0;border-bottom: 1px solid #eee;margin-bottom: .5rem}
+.flex-wrap{flex-wrap: wrap;}

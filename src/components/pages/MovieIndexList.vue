@@ -28,9 +28,7 @@ import {Flexbox, FlexboxItem,Swiper,Badge} from 'vux';
 export default {
 	 props: ['movies'], //组件通信
 	 data () {
-	    return {
-	          
-	          
+	    return { 
 	    }
 	 },
 	 components: {
