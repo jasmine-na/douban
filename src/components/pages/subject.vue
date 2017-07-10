@@ -31,11 +31,13 @@
 					                    	<p class="small-size">{{subject.summary}}</p>
 					                    	<p class="title">演员</p>
 					                    	<flexbox :gutter="0">
-										      <flexbox-item :span="1/5" v-for="cast in subject.casts"><div class="flex-demo"><img :src="cast.avatars.small">
-					                    		      <p>{{cast.name}}</p></div></flexbox-item>
+										      <flexbox-item :span="1/5">
+											      <div class="flex-demo" v-for="cast in subject.casts">
+											             <img :src="cast.avatars.small">
+						                    		      <p>{{cast.name}}</p>
+						                    	  </div>
+					                    	  </flexbox-item>
 										    </flexbox>
-                                             <p class="title">短评</p>
-                                             {{comments}}
 				                    	
 		                       
                 </div>
@@ -46,9 +48,8 @@ import {Swiper,Badge,Loading,Flexbox, FlexboxItem} from 'vux';
 export default {
 	 data () {
 	    return {
-	          subject:null,
-	          comments:null,
-	          loadingText:"loading",
+	          subject:null,//电影条目
+	          loadingText:"loading",//加载文字
 	          loading: true, //是否加载
 	    }
 	 },
@@ -57,7 +58,6 @@ export default {
 	 },
 	 mounted: function() {
 	 	 this.getSubject();
-	 	 this.getComments();
      },
      methods: {
      	   async getSubject(){
@@ -67,21 +67,11 @@ export default {
 		              	this.subject=data.data;
 		                this.loading=false;
 	               }
-	        },
-	        async getComments(){
-     	   	      let data = await this.$http.get(`/v2/movie/subject/${this.$route.params.id}/comments`);
-	               if (data.status == 200) {
-		              	this.comments=data.data;
-		                this.loading=false;
-	               }
 	        }
      }
 }
 </script>
 <style scoped>
-    .vux-flexbox{flex-wrap: wrap;}
-	.flex-box{flex-direction: row;height: 100%;
-	}
-	.title{padding: .5rem 0;border-bottom: 1px solid #eee;margin-bottom: .5rem}
+    
 </style>
 

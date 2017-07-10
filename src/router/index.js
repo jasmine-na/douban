@@ -1,9 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/common/Home'
-import Movie from '@/components/pages/movie.vue'
+import Movie from '@/components/pages/Movie.vue'
 import MovieList from '@/components/pages/MovieList.vue'
-import Subject from '@/components/pages/subject.vue'
+import Subject from '@/components/pages/Subject.vue'
+
 Vue.use(Router)
 
 export default new Router({
