@@ -45,3 +45,7 @@ background-color: #4caf50
 }
 .title{padding: .5rem 0;border-bottom: 1px solid #eee;margin-bottom: .5rem}
 .flex-wrap{flex-wrap: wrap;}
+
+   .stars{display: inline-block;}
+   .text-yellow{color: #ffb13e}
+   .text-gray{color: #cecece}

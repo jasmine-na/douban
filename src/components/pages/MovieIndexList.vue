@@ -12,7 +12,9 @@
 									          <router-link :to="{ name: 'subject', params: { id: movie.id}}">
 									                   <img :src="movie.images.medium">
 									          </router-link>
-										      <p class="text">{{movie.original_title}}</p>
+										      <p class="text">{{movie.rating.average}}分 {{movie.original_title}}</p>
+										      <p>{{movie.rating.stars}}</p>
+										      
 										      <p class="mask"></p>
 									      </div>
 								      </flexbox-item>
@@ -24,6 +26,7 @@
 </template>>
 <!-- <script type="text/ecmascript-6"> -->
 <script>
+
 import {Flexbox, FlexboxItem,Swiper,Badge} from 'vux';
 export default {
 	 props: ['movies'], //组件通信
@@ -35,6 +38,7 @@ export default {
 	      Flexbox, FlexboxItem,Swiper,Badge
 	 },
 	 mounted: function() {
+	 	  
      },
      methods: {
      }

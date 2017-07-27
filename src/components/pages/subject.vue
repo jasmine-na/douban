@@ -12,6 +12,9 @@
 					                    		  <p>{{subject.original_title}}</p>
 					                    		  <p class="text-muted small-size">年份：{{subject.year}}年
 					                    		 </p>
+					                    		 <p>
+					                    		 <span>{{subject.rating.average}}分</span>
+					                    		 <stars :stars.sync="subject.rating.stars"></stars></p>
 					                    		  <p class="small-size">主演：<span v-for="(cast,index) in subject.casts"> 
 					                    		  	     <span v-if="index !=0">/</span>{{cast.name}}
 					                    		  </span>
@@ -20,6 +23,7 @@
 					                    		  <p class="small-size">地区：<span v-for="countrie in subject.countries">{{countrie}}</span>
 					                    		 
 					                    		  </p>
+
 					                    		  <p class="small-size">类型：
 					                    		  	  <span v-for="genre in subject.genres">
 					                    		  	  	   <badge :text="genre" class="m-r-1"></badge>
@@ -30,20 +34,19 @@
 					                    	<p class="title">剧情简介</p>
 					                    	<p class="small-size">{{subject.summary}}</p>
 					                    	<p class="title">演员</p>
-					                    	<flexbox :gutter="0">
-										      <flexbox-item :span="1/5">
-											      <div class="flex-demo" v-for="cast in subject.casts">
+					                    	<div>
+											      <div class="cast-list" v-for="cast in subject.casts">
 											             <img :src="cast.avatars.small">
-						                    		      <p>{{cast.name}}</p>
+						                    		      <p class="small-size" :title="cast.name">{{cast.name}}</p>
 						                    	  </div>
-					                    	  </flexbox-item>
-										    </flexbox>
+				                    	  </div>
 				                    	
 		                       
                 </div>
 </template>>
 <!-- <script type="text/ecmascript-6"> -->
 <script>
+import Stars from '.././common/Stars.vue';
 import {Swiper,Badge,Loading,Flexbox, FlexboxItem} from 'vux';
 export default {
 	 data () {
@@ -54,7 +57,7 @@ export default {
 	    }
 	 },
 	 components: {
-	      Swiper,Badge,Flexbox, FlexboxItem,Loading
+	      Swiper,Badge,Flexbox, FlexboxItem,Loading,Stars
 	 },
 	 mounted: function() {
 	 	 this.getSubject();
@@ -72,6 +75,9 @@ export default {
 }
 </script>
 <style scoped>
-    
+     .cast-list{width: 80px;float: left;}
+     .cast-list p{text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;}
 </style>
 

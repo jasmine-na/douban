@@ -41,7 +41,7 @@ export default {
         this.getMovies();
     },
     methods: {
-            //获取正在热映列表
+            //获取电影列表
 	        getMovies() {
 	             const actions = ['in_theaters', 'coming_soon', 'top250'];
 	             var that=this;
@@ -56,9 +56,9 @@ export default {
 							}
 	                   }         
 	             )
-				
 
 	        },
+	        //搜索电影
 	        async searchMovie(){
 	        	 this.loading=true;
 	        	 let data = await this.$http.get(`/v2/movie/search?q=${this.searchText}`);

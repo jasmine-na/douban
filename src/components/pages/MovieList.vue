@@ -13,6 +13,7 @@
 			                    		  <p>{{movie.original_title}}</p>
 			                    		  <p class="text-muted small-size">{{movie.year}}年/<span class="text-blue small-size">{{movie.rating.average}}分</span>
 			                    		 </p>
+			                    		 <p><stars :stars.sync="movie.rating.stars"></stars></p>
 			                    		  <p class="small-size">主演：<span v-for="(cast,index) in movie.casts"> 
 			                    		  	     <span v-if="index !=0">/</span>{{cast.name}}
 			                    		  </span>
@@ -35,6 +36,7 @@
 <!-- <script type="text/ecmascript-6"> -->
 <script>
 import {Swiper,Badge,Loading} from 'vux';
+import Stars from '.././common/Stars.vue';
 export default {
 	 data () {
 	    return {
@@ -47,7 +49,7 @@ export default {
 	    }
 	 },
 	 components: {
-	      Swiper,Badge,Loading
+	      Swiper,Badge,Loading,Stars
 	 },
 	 mounted: function() {
 	 	 window.addEventListener('scroll', this.handleScroll);
