@@ -16,6 +16,17 @@
 >3. 详情页
 >4. 搜索页
 >5. stars
+## 生产环境跨域
+> config/index.js
+```proxyTable: { //跨域解决
+     '/v2': {
+       target: 'https://api.douban.com',
+       changeOrigin: true,
+       pathRewrite: {
+         '^/v2': '/v2'
+       }
+     }
+```
 ## 开发
 
 ``` bash
