@@ -37,7 +37,7 @@ background-color: #4caf50
 .flex-column{flex-direction: column;display: flex;flex-wrap: wrap;}
 .flex-row{flex-direction: row;display: flex;flex-wrap: wrap;}
 .flex-demo{height: 160px;position: relative;display: flex;align-items:flex-end;}
-.flex-demo p{width: 100px;position: absolute;bottom: 0;height: 20px}
+.flex-demo p{width: 100px;position: absolute;bottom: 6px;height: 20px}
 .flex-demo p.mask{background: #000;opacity: 0.6;z-index: 1;}
 .flex-demo p.text{white-space: nowrap;overflow: hidden;font-size: 0.75rem;color: #fff;text-overflow: ellipsis;padding:0  0.25rem;  box-sizing: border-box;z-index: 2}
 .vux-flexbox{flex-wrap: wrap;}

@@ -13,8 +13,7 @@
 									                   <img :src="movie.images.medium">
 									          </router-link>
 										      <p class="text">{{movie.rating.average}}分 {{movie.original_title}}</p>
-										      <p>{{movie.rating.stars}}</p>
-										      
+										     
 										      <p class="mask"></p>
 									      </div>
 								      </flexbox-item>
