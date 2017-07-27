@@ -13,7 +13,7 @@
 					                    		  <p class="text-muted small-size">年份：{{subject.year}}年
 					                    		 </p>
 					                    		 <p>
-					                    		 <span>{{subject.rating.average}}分</span>
+					                    		 <span v-if="subject.rating.average!=0">{{subject.rating.average}}分</span>
 					                    		 <stars :stars.sync="subject.rating.stars"></stars></p>
 					                    		  <p class="small-size">主演：<span v-for="(cast,index) in subject.casts"> 
 					                    		  	     <span v-if="index !=0">/</span>{{cast.name}}

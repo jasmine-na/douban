@@ -12,7 +12,7 @@
 									          <router-link :to="{ name: 'subject', params: { id: movie.id}}">
 									                   <img :src="movie.images.medium">
 									          </router-link>
-										      <p class="text">{{movie.rating.average}}分 {{movie.original_title}}</p>
+										      <p class="text"><span v-if="movie.rating.average!=0">{{movie.rating.average}}分</span> {{movie.original_title}}</p>
 										     
 										      <p class="mask"></p>
 									      </div>
