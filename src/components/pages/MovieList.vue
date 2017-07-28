@@ -11,19 +11,21 @@
         <img :src="movie.images.medium" width="100px;">
         <div class="flex-box-content">
           <p>{{movie.original_title}}</p>
-          <p class="text-muted small-size">{{movie.year}}年/<span class="text-blue small-size" v-if="movie.rating.average!=0">{{movie.rating.average}}分</span>
+          <p class="text-muted small-size">{{movie.year}}年/
+            <span class="text-blue small-size" v-if="movie.rating.average!=0">{{movie.rating.average}}分</span>
           </p>
           <p>
             <stars :stars.sync="movie.rating.stars"></stars>
           </p>
-          <p class="small-size">主演：<span v-for="(cast,index) in movie.casts"> 
-			                    		  	     <span v-if="index !=0">/</span>{{cast.name}}
+          <p class="small-size">主演：
+            <span v-for="(cast,index) in movie.casts"> 
+                                       <span v-if="index !=0">/</span>{{cast.name}}
             </span>
           </p>
           <p>
             <span v-for="genre in movie.genres">
-			                    		  	  	   <badge :text="genre" class="m-r-1"></badge>
-			                    		  	  </span>
+                                         <badge :text="genre" class="m-r-1"></badge>
+                                    </span>
           </p>
         </div>
         <div class="line"></div>
