@@ -23,6 +23,9 @@
           <p class="small-size">导演：<span v-for="director  in subject.directors">{{director.name}}</span></p>
           <p class="small-size">地区：<span v-for="countrie in subject.countries">{{countrie}}</span>
           </p>
+          <p class="small-size">{{subject.collect_count}}人看过</p>
+          
+          <p>
           <p class="small-size">类型：
             <span v-for="genre in subject.genres">
 					                    		  	  	   <badge :text="genre" class="m-r-1"></badge>
@@ -89,5 +92,5 @@ export default {
   white-space: nowrap;
   overflow: hidden;
 }
-
+.flex-box-content p{margin: 3px 0}
 </style>

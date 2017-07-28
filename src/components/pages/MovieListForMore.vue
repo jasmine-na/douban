@@ -25,6 +25,8 @@
                                        <span v-if="index !=0">/</span>{{cast.name}}
             </span>
           </p>
+          <p class="small-size">{{movie.collect_count}}人看过</p>
+          
           <p>
             <span v-for="genre in movie.genres">
                                          <badge :text="genre" class="m-r-1"></badge>
