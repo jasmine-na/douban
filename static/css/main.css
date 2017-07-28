@@ -3,31 +3,23 @@ ul{padding: 0;}
 ul,li{list-style: none}
 a{color: #333}
 .flex-box{display: flex;flex-direction:row;flex-wrap: nowrap;justify-content: flex-start;margin:1rem 0;}
-.flex-box-content{
-display: flex;flex-direction: column;padding-left: 0.5rem;
-}
-.bg-warning {
-background-color: #ffc107
-}
-.bg-error {
-background-color: #f44336
-}
-.bg-primary {
-background-color: #26a2ff
-}
-.bg-success {
-background-color: #4caf50
-}
+.flex-box-content{display: flex;flex-direction: column;padding-left: 0.5rem;}
+.bg-warning {background-color: #ffc107}
+.bg-error {background-color: #f44336}
+.bg-primary {background-color: #26a2ff}
+.bg-success {background-color: #4caf50}
+.text-yellow{color: #ffb13e}
+.text-gray{color: #cecece}
 .text-muted{color: #888;}
-.m-r-1{margin-right:0.5rem;}
-.line{border-top:1px solid #eee;height: 1px;margin:1rem 0;}
-.content{margin-top: 90px;overflow:auto;padding: 0.5rem}
-.header-fixed{width: 100%;position: fixed;left: 0px;top: 0px;z-index: 100;}
 .text-green{color: #00b600;}
 .text-blue{color:#1f63fe;}
 .text-brown{color:rgb(159, 120, 96)}
 .text-orange{color:#f0ad4e}
 .text-sky-blue{color:rgb(42, 184, 204)}
+.m-r-1{margin-right:0.5rem;}
+.line{border-top:1px solid #eee;height: 1px;margin:1rem 0;}
+.content{margin-top: 90px;overflow:auto;padding: 0.5rem}
+.header-fixed{width: 100%;position: fixed;left: 0px;top: 0px;z-index: 100;}
 .vux-demo {text-align: center;}
 .logo {width: 100px;height: 100px}
 .small-size{font-size: 13px;}
@@ -42,11 +34,10 @@ background-color: #4caf50
 .flex-demo p.mask{background: #000;opacity: 0.6;z-index: 1;}
 .flex-demo p.text{white-space: nowrap;overflow: hidden;font-size: 0.75rem;color: #fff;text-overflow: ellipsis;padding:0  0.25rem;  box-sizing: border-box;z-index: 2}
 .vux-flexbox{flex-wrap: wrap;}
-.flex-box{flex-direction: row;height: 100%;
-}
+.flex-box{flex-direction: row;height: 100%;}
 .title{padding: .5rem 0;border-bottom: 1px solid #eee;margin-bottom: .5rem}
 .flex-wrap{flex-wrap: wrap;}
-
-   .stars{display: inline-block;}
-   .text-yellow{color: #ffb13e}
-   .text-gray{color: #cecece}
+.stars{display: inline-block;}
+.cast-list {width: 80px;float: left;}
+.cast-list p {text-overflow: ellipsis;white-space: nowrap;overflow: hidden;}
+.flex-box-content p{margin: 3px 0}

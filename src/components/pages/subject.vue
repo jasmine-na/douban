@@ -28,8 +28,8 @@
           <p>
           <p class="small-size">类型：
             <span v-for="genre in subject.genres">
-					                    		  	  	   <badge :text="genre" class="m-r-1"></badge>
-					                    		  	  </span>
+					          <badge :text="genre" class="m-r-1"></badge>
+					  </span>
           </p>
         </div>
       </div>
@@ -82,15 +82,5 @@ export default {
 
 </script>
 <style scoped>
-.cast-list {
-  width: 80px;
-  float: left;
-}
 
-.cast-list p {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-.flex-box-content p{margin: 3px 0}
 </style>
