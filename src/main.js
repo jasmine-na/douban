@@ -7,7 +7,7 @@ import router from './router'
 
 import Axios from 'axios'
 import VueAxios from 'vue-axios'
-Vue.use(VueAxios, Axios)//http://www.jianshu.com/p/2045900d49df Axios用法
+Vue.use(VueAxios, Axios) //http://www.jianshu.com/p/2045900d49df Axios用法
 
 FastClick.attach(document.body)
 

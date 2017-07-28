@@ -9,16 +9,16 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
-    { path: '*',redirect:'/' },
+    { path: '*', redirect: '/' },
     {
       path: '/',
       component: Home,
       redirect: '/index',
       children: [
-        { path: 'index',name:'index',component: Movie },
-        { path: 'movie',name:'movie',component: Movie },
-        { path: '/list/:type',name:'list', component: MovieList },
-        { path: '/subject/:id',name:'subject', component: Subject }
+        { path: 'index', name: 'index', component: Movie },
+        { path: 'movie', name: 'movie', component: Movie },
+        { path: '/list/:type', name: 'list', component: MovieList },
+        { path: '/subject/:id', name: 'subject', component: Subject }
       ]
     }
   ]
