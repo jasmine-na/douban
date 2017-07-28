@@ -43,7 +43,7 @@ export default {
   methods: {
     //获取电影列表
     getMovieList() {
-      //正在热播的电影，即将上映的电影，top250
+      //即将上映的电影，top250，正在上映的电影
       const actions = ['in_theaters', 'coming_soon', 'top250'];
       var that = this;
       actions.map(async function(item, index) {

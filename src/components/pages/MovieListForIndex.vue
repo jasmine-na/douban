@@ -3,7 +3,7 @@
     <div v-if="movies">
       <div class="movieType-title">
         <p><b>{{movies.data.title}}</b></p>
-        <router-link :to="{ name: 'list', params: { type: movies.name}}">更多</router-link>
+        <router-link :to="{ name: 'list', params: { type: movies.name}}">more <i class="iconfont icon-more"></i></router-link>
       </div>
       <div class="line"></div>
       <flexbox :gutter="0" wrap="wrap">
@@ -42,6 +42,6 @@ export default {
 
 </script>
 <style scoped>
-
+   a:hover{color: #295ca7}
 
 </style>

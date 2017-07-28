@@ -1,6 +1,7 @@
 body{font-family: -apple-system-font,"Microsoft Yahei", "Helvetica Neue", sans-serif !important;}
 ul{padding: 0;}
 ul,li{list-style: none}
+a{color: #333}
 .flex-box{display: flex;flex-direction:row;flex-wrap: nowrap;justify-content: flex-start;margin:1rem 0;}
 .flex-box-content{
 display: flex;flex-direction: column;padding-left: 0.5rem;

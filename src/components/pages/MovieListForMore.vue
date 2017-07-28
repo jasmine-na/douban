@@ -7,15 +7,18 @@
         </div>
         <div class="line"></div>
       </div>
-      <div class="flex-box" v-for="movie in item.subjects">
+      <div v-for="movie in item.subjects">
+            <router-link :to="{ name: 'subject', params: { id: movie.id}}">
+            <div  class="flex-box">
         <img :src="movie.images.medium" width="100px;">
         <div class="flex-box-content">
           <p>{{movie.original_title}}</p>
-          <p class="text-muted small-size">{{movie.year}}年/
-            <span class="text-blue small-size" v-if="movie.rating.average!=0">{{movie.rating.average}}分</span>
+          <p class="text-muted small-size">{{movie.year}}年
+           
           </p>
           <p>
-            <stars :stars.sync="movie.rating.stars"></stars>
+             <span  v-if="movie.rating.average!=0"><em>{{movie.rating.average}}分</em></span> 
+             <stars :stars.sync="movie.rating.stars"></stars>
           </p>
           <p class="small-size">主演：
             <span v-for="(cast,index) in movie.casts"> 
@@ -29,6 +32,8 @@
           </p>
         </div>
         <div class="line"></div>
+        </div>
+        </router-link>
       </div>
     </div>
     <div>
